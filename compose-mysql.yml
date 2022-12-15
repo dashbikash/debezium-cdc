@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - "./scripts/sakila-schema.sql:/docker-entrypoint-initdb.d/1.sql"
+      - "./scripts/sakila-data.sql:/docker-entrypoint-initdb.d/2.sql"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_TCP_PORT: 3306
+    
