@@ -6,8 +6,8 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - "./scripts/sakila-schema.sql:/docker-entrypoint-initdb.d/1.sql"
-      - "./scripts/sakila-data.sql:/docker-entrypoint-initdb.d/2.sql"
-      - "./scripts/admin.sql:/docker-entrypoint-initdb.d/3.sql"
+      - "./scripts/mariadb-admin.sql:/docker-entrypoint-initdb.d/1.sql"
+      - "./scripts/classicmodels.sql:/docker-entrypoint-initdb.d/2.sql"
+            
     environment:
       MARIADB_ROOT_PASSWORD: root
