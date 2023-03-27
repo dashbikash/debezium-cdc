@@ -14,10 +14,10 @@ services:
       MYSQL_TCP_PORT: 3306
   
   phpmyadmin:
-    image: phpmyadmin
+    image: phpmyadmin:fpm-alpine
     restart: always
     ports:
       - 8080:80
     environment:
-      - PMA_ARBITRARY=1
+      - PMA_HOST=db
     
