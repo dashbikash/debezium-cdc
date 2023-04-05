@@ -14,7 +14,7 @@ services:
       MYSQL_TCP_PORT: 3306
   
   phpmyadmin:
-    image: phpmyadmin:fpm-alpine
+    image: phpmyadmin
     restart: always
     ports:
       - 8080:80
