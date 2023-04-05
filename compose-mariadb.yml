@@ -7,7 +7,16 @@ services:
       - "3306:3306"
     volumes:
       - "./scripts/mariadb-admin.sql:/docker-entrypoint-initdb.d/1.sql"
-      - "./scripts/classicmodels.sql:/docker-entrypoint-initdb.d/2.sql"
+      - "./scripts/sakila-schema.sql:/docker-entrypoint-initdb.d/2.sql"
+      - "./scripts/sakila-data.sql:/docker-entrypoint-initdb.d/3.sql"
             
     environment:
       MARIADB_ROOT_PASSWORD: root
+      
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      - PMA_HOST=db
